@@ -6,26 +6,49 @@
     <title>Velge språk</title>
 </head>
 <body>
-    <h1 id="overskrift">Velkommen til Nannestad</h1>
+    <h1 id="h1">Velkommen til Nannestad</h1>
     <select id="selSpraak">
-        <option>Velg språk her...</option>
-        <option>Norsk</option>
-        <option>Japansk</option>
+        <option value="default">Velg språk her...</option>
+        <option value="norsk">Norsk</option>
+        <option value="engelsk">Engelsk</option>
+        <option value="kinesisk">Kinesisk</option>
+        <option value="fransk">Fransk</option>
     </select>
-    <p id="txt">Nannestad er en vakker og intim landsby i naturrike omgivelser.
+    <p id="p">Nannestad er en vakker og intim landsby i naturrike omgivelser.
         Nannestad er kjent for skisport og rikt friluftsliv. Det er mange
         fiskevann, og Leira er vår elv som renner ut i Øyeren ved Lillestrøm.
     </p>
 
     <script>
+        function changeLanguage() {
+            var select = document.getElementById("selSpraak");
+            var h1 = document.getElementById("h1");
+            var p = document.getElementById("p");
 
-        function endreSpraak(){
-            let valgtSpraak = selSpraak.value;
-           // Hjelp
-        }
+            if (select.value === "engelsk") {
+                h1.textContent = "Welcome to Nannestad";
+                p.textContent = `Nannestad is a beautiful and intimate village in natural surroundings.
+        Nannestad is known for skiing and rich outdoor life. There are many
+        fishing water, and Leira is our river that flows into the Øyeren at Lillestrøm.`;
+            }
+            else if (select.value === "norsk") {
+                h1.textContent = "Velkommen til Nannestad";
+                p.textContent = `Nannestad er en vakker og intim landsby i naturrike omgivelser.
+        Nannestad er kjent for skisport og rikt friluftsliv. Det er mange
+        fiskevann, og Leira er vår elv som renner ut i Øyeren ved Lillestrøm.`;
+            }
+            else if (select.value === "kinesisk") {
+                h1.textContent = "欢迎来到Nannestad";
+                p.textContent = "Nannestad是一个美丽而亲密的村庄，处于自然环境中。Nannestad以滑雪和丰富的户外活动而闻名。有许多钓鱼的地方，Leira是我们的河流，流入Lillestrøm的Øyeren湖。";
+            } 
+            else if (select.value === "fransk") {
+                h1.textContent = "Bienvenue à Nannestad";
+                p.textContent = "Nannestad est un village magnifique et intime, situé au cœur de la nature. Nannestad est réputé pour le ski et la richesse de ses activités de plein air. Il y a de nombreux endroits pour pêcher, et la Leira est notre rivière qui se jette dans le Øyeren à Lillestrøm.";
+            }
+        }    
         
-    selSpraak.addEventListener("change", endreSpraak);
-    
+        var selSpraak = document.getElementById("selSpraak");
+        selSpraak.addEventListener("change", changeLanguage);
     </script>
 </body>
 </html>
